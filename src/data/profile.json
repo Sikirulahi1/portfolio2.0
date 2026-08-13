@@ -1,0 +1,36 @@
+{
+  "name": "Your Name",
+  "brand": "Your Name",
+  "introTag": "YOUR.NAME",
+  "nameRows": ["YOUR", "NAME"],
+  "typedRoles": [
+    "AI Engineer · Backend · Researcher",
+    "I build and research AI systems end-to-end.",
+    "From backend infrastructure to models to published work.",
+    "Open to opportunities →"
+  ],
+  "heroSub": "AI engineer, backend developer and researcher who <b>builds and studies AI systems end-to-end</b> — from the backend infrastructure that serves them, to the models themselves, to the published work that explains them.",
+  "heroMeta": [
+    { "k": "LOC", "v": "Your City · Your Country" },
+    { "k": "TZ", "v": "UTC+00:00" },
+    { "k": "STATUS", "v": "open to opportunities" }
+  ],
+  "email": "you@example.com",
+  "github": "https://github.com/your-handle",
+  "githubHandle": "your-handle",
+  "linkedin": "https://www.linkedin.com/in/your-handle",
+  "location": "Your City, Your Country",
+  "tz": "UTC+00:00",
+  "contactTitle": "Let's build, research,<br>or just talk AI",
+  "contactNote": "Hiring across AI engineering, backend, or research roles — or just want to argue about retrieval strategies? My inbox is open — I usually reply within a day.",
+  "navLinks": [
+    { "label": "About", "href": "#about", "nav": "about" },
+    { "label": "Work", "href": "#work", "nav": "work" },
+    { "label": "Projects", "href": "#projects", "nav": "projects" },
+    { "label": "Publications", "href": "#publications", "nav": "publications" },
+    { "label": "Blogs", "href": "#blogs", "nav": "blogs" },
+    { "label": "Skills", "href": "#skills", "nav": "skills" },
+    { "label": "GitHub", "href": "#github", "nav": "github" },
+    { "label": "Contact", "href": "#contact", "nav": "contact" }
+  ]
+}

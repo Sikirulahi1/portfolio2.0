@@ -1,0 +1,52 @@
+/* reset, document, and shared primitives */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+html.has-cursor, html.has-cursor a, html.has-cursor button{cursor:none}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--em);color:var(--on-em)}
+::-webkit-scrollbar{width:11px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border-2);border:3px solid var(--bg);border-radius:8px}
+::-webkit-scrollbar-thumb:hover{background:var(--em-deep)}
+a{color:var(--em);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+img{max-width:100%;display:block}
+button{font-family:inherit;background:none;border:none;color:inherit;cursor:pointer}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.sec{padding:120px 0;position:relative}
+.sec + .sec{border-top:1px solid var(--border)}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--em);color:var(--on-em);padding:8px 16px;z-index:700;border-radius:6px;font-weight:600}
+.skip-link:focus{left:12px;top:12px}
+:focus-visible{outline:2px solid var(--em);outline-offset:3px;border-radius:3px}
+
+/* canvases + ambient */
+#space{position:fixed;inset:0;z-index:-2}
+#fx{position:fixed;inset:0;z-index:520;pointer-events:none}
+.glow{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 75% 50% at 50% -10%, rgba(16,185,129,.09), transparent 60%)}
+
+/* scroll progress */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:210;background:var(--em);
+  box-shadow:0 0 12px var(--em-glow)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .45s ease-out,transform .45s ease-out}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.07s}.rv.d2{transition-delay:.14s}.rv.d3{transition-delay:.21s}
+
+/* reduced-motion global guard */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+  .rv,.name.pre .ch{opacity:1;transform:none}
+  #intro{display:none}
+  .cal-grid i{opacity:1;transform:none}
+}

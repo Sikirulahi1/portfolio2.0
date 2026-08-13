@@ -1,0 +1,9 @@
+{
+  "title": "Three hats, one engineer",
+  "sub": "I move between these every day — the engineering informs the research, and the research makes the engineering better.",
+  "items": [
+    { "glyph": "⚙️", "title": "AI Engineer", "desc": "Designing and shipping ML systems — retrieval pipelines, model serving, evaluation loops, and the glue that turns a notebook into something real users can hit.", "tagline": "MODELS · RAG · MLOps" },
+    { "glyph": "🛠️", "title": "Backend Developer", "desc": "Building the infrastructure underneath it all — APIs, data pipelines, queues, and the reliability work that keeps systems fast and upright under load.", "tagline": "APIs · PIPELINES · SCALABILITY" },
+    { "glyph": "🔬", "title": "AI Researcher", "desc": "Studying the methods, not just using them — implementing ideas from first principles, evaluating them rigorously, and writing them up as reproducible published work.", "tagline": "PAPERS · EVALUATION · FIRST PRINCIPLES" }
+  ]
+}

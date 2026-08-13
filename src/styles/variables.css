@@ -1,0 +1,20 @@
+/* design tokens — the "Terminal Emerald" palette + type stack */
+:root{
+  --bg:       #070B09;
+  --panel:    #0C120F;
+  --panel-2:  #121A15;
+  --border:   #1D2822;
+  --border-2: #2C3B32;
+  --ink:      #E9EFEB;
+  --muted:    #93A39A;
+  --faint:    #5D6C64;
+  --em:       #10B981;
+  --em-bright:#34D399;
+  --em-deep:  #059669;
+  --on-em:    #04150E;
+  --em-glow:  rgba(16,185,129,.35);
+  --disp: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+  --body: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  --r: 10px;
+}

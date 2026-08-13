@@ -1,0 +1,41 @@
+{
+  "title": "Where I've built things",
+  "sub": "Roles across AI, backend, and research — the most recent first.",
+  "items": [
+    {
+      "year": "2026 — NOW",
+      "role": "AI Engineer",
+      "company": "Company Name",
+      "period": "2026 — Present",
+      "now": true,
+      "bullets": [
+        "Shipped <b>retrieval-augmented generation</b> systems to production, owning the pipeline from ingestion to serving.",
+        "Built <b>evaluation loops</b> that caught regressions before they reached users.",
+        "Worked across the model and the <b>backend infrastructure</b> that serves it."
+      ]
+    },
+    {
+      "year": "2025",
+      "role": "Backend Developer",
+      "company": "Company Name",
+      "period": "2025 — 2026",
+      "now": false,
+      "bullets": [
+        "Designed and maintained <b>APIs and data pipelines</b> handling production traffic.",
+        "Improved <b>reliability and latency</b> of core services under load.",
+        "Collaborated with the ML team to wire models into the serving stack."
+      ]
+    },
+    {
+      "year": "2024",
+      "role": "AI Research Intern",
+      "company": "Lab / Institution",
+      "period": "2024 — 2025",
+      "now": false,
+      "bullets": [
+        "Researched <b>retrieval and evaluation methods</b>, implementing ideas from first principles.",
+        "Contributed to work that became a <b>published paper</b> (see Publications)."
+      ]
+    }
+  ]
+}

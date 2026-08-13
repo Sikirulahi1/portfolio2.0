@@ -1,0 +1,9 @@
+{
+  "title": "Built, shipped, written up",
+  "sub": "A selection of things I've built across AI, backend, and research — each one owned end-to-end, from idea to working system.",
+  "items": [
+    { "year": "2026", "title": "AI System Project One", "desc": "An end-to-end <b>AI/retrieval system</b> — ingestion, retrieval, serving, and evaluation. Owned the full pipeline and the <b>backend infrastructure</b> behind it, then benchmarked it properly.", "tech": "Python · PyTorch · FastAPI · Vector DB · Docker", "link": "https://github.com/your-handle/project-one" },
+    { "year": "2025", "title": "Backend System Project Two", "desc": "A <b>production backend</b> — APIs, a data pipeline, and the reliability work to keep it upright under load. Focused on <b>latency, throughput, and observability</b>.", "tech": "Go · PostgreSQL · Redis · gRPC · Kubernetes", "link": "https://github.com/your-handle/project-two" },
+    { "year": "2025", "title": "Research Project Three", "desc": "An <b>applied research</b> project implementing a method from first principles, evaluating it rigorously, and writing it up — the basis for a <b>publication</b> (see Publications).", "tech": "Python · PyTorch · NumPy · Matplotlib · W&B", "link": "https://github.com/your-handle/project-three" }
+  ]
+}

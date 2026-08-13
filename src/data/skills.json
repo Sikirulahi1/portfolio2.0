@@ -1,0 +1,9 @@
+{
+  "title": "The toolbox",
+  "sub": "Grouped by discipline — the AI/ML stack, the backend stack, and the research & tooling underneath.",
+  "cards": [
+    { "title": "AI / ML", "count": "09", "tags": ["PyTorch", "TensorFlow", "Hugging Face", "RAG", "Retrieval", "Reranking", "Evaluation", "NLP", "Computer Vision"] },
+    { "title": "Backend", "count": "08", "tags": ["Python", "Go", "FastAPI", "PostgreSQL", "Redis", "Docker", "Kubernetes", "REST / gRPC"] },
+    { "title": "Research & Tools", "count": "08", "tags": ["NumPy", "Pandas", "Matplotlib", "W&B", "LaTeX", "Git", "Linux", "Statistics"] }
+  ]
+}

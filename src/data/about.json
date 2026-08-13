@@ -1,0 +1,17 @@
+{
+  "title": "One person, three disciplines",
+  "sub": "The story behind the commits — what I build, what I research, and how the engineering and the science feed each other.",
+  "bio": [
+    "I'm an <b>AI engineer, backend developer, and AI researcher</b> who likes owning the whole stack — not just calling a model API, but the <span class=\"hl\">infrastructure that serves it, the model itself, and the evaluation that proves it works</span>.",
+    "On the backend side I build <b>production systems</b> — APIs, data pipelines, and the reliability work that keeps them upright. On the AI side I work across <b>ML, retrieval (RAG), and applied research</b>, implementing ideas from first principles rather than treating models as black boxes. And as a researcher I turn those implementations into <b>published work</b> — reproducible, evaluated, and written up properly.",
+    "Currently <span class=\"hl\">open to opportunities</span> where I can point all three at real problems."
+  ],
+  "motto": "# build it, study it, ship it, write it up",
+  "now": [
+    { "k": "building", "v": "<b>AI systems in production</b> · backend + ML" },
+    { "k": "researching", "v": "<b>retrieval & evaluation</b>, from first principles" },
+    { "k": "writing", "v": "papers and <b>technical blogs</b>" },
+    { "k": "status", "v": "<b>open_to_opportunities</b> = True" }
+  ],
+  "offClock": ["paper deep-dives", "open source", "documenting learning", "side projects", "technical writing"]
+}

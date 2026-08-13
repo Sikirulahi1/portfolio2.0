@@ -1,0 +1,30 @@
+{
+  "title": "Research, written up",
+  "sub": "Peer-reviewed and preprint work — reproducible, evaluated, and cited.",
+  "items": [
+    {
+      "title": "Paper Title One: A Method for Doing the Thing Better",
+      "venue": "Venue / Conference",
+      "year": "2026",
+      "authors": "<b>Your Name</b>, Co-Author Two, Co-Author Three",
+      "links": [
+        { "label": "arXiv ↗", "url": "#" },
+        { "label": "PDF ↗", "url": "#" },
+        { "label": "DOI ↗", "url": "#" },
+        { "label": "Cite", "url": "#" }
+      ]
+    },
+    {
+      "title": "Paper Title Two: Studying the Thing From First Principles",
+      "venue": "Journal / Workshop",
+      "year": "2025",
+      "authors": "Co-Author One, <b>Your Name</b>, Co-Author Three",
+      "links": [
+        { "label": "arXiv ↗", "url": "#" },
+        { "label": "PDF ↗", "url": "#" },
+        { "label": "DOI ↗", "url": "#" },
+        { "label": "Cite", "url": "#" }
+      ]
+    }
+  ]
+}

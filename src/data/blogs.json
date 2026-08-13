@@ -1,0 +1,9 @@
+{
+  "title": "Writing it down",
+  "sub": "Technical posts on AI, backend, and research — the longer-form version of what I learn.",
+  "items": [
+    { "date": "2026 · 8 MIN READ", "title": "How I Built and Evaluated a Retrieval System From Scratch", "excerpt": "A walkthrough of the full pipeline — ingestion, retrieval, reranking, and the evaluation loop that told me whether it actually worked.", "link": "#" },
+    { "date": "2025 · 6 MIN READ", "title": "Backend Reliability Lessons From Production", "excerpt": "What I learned keeping a backend upright under load — latency, queues, retries, and the observability that makes it all debuggable.", "link": "#" },
+    { "date": "2025 · 10 MIN READ", "title": "Implementing a Method From First Principles", "excerpt": "Why building the math yourself beats calling an API — and how it made me a better researcher and engineer at once.", "link": "#" }
+  ]
+}

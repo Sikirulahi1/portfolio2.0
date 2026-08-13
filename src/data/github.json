@@ -1,0 +1,22 @@
+{
+  "title": "Proof of work, in public",
+  "sub": "Stats, the contribution graph, and my latest repos — pulled straight from the GitHub API on every visit.",
+  "user": "your-handle",
+  "email": "you@example.com",
+  "fallbackProfile": { "public_repos": 0, "followers": 0, "stars": 0 },
+  "fallbackRepos": [
+    { "name": "project-one", "description": "AI/retrieval system — full pipeline from ingestion to serving.", "language": "Python", "stargazers_count": 0, "fork": false, "updated_at": "2026-01-01T00:00:00Z", "html_url": "https://github.com/your-handle/project-one" },
+    { "name": "project-two", "description": "Production backend — APIs, pipeline, reliability work.", "language": "Go", "stargazers_count": 0, "fork": false, "updated_at": "2025-06-01T00:00:00Z", "html_url": "https://github.com/your-handle/project-two" },
+    { "name": "project-three", "description": "Applied research — method implemented from first principles.", "language": "Python", "stargazers_count": 0, "fork": false, "updated_at": "2025-03-01T00:00:00Z", "html_url": "https://github.com/your-handle/project-three" }
+  ],
+  "langColors": {
+    "Python": "#3572A5",
+    "Jupyter Notebook": "#DA5B0B",
+    "HTML": "#e34c26",
+    "JavaScript": "#f1e05a",
+    "Java": "#b07219",
+    "C": "#555555",
+    "CSS": "#563d7c",
+    "Go": "#00ADD8"
+  }
+}
