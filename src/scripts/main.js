@@ -20,6 +20,8 @@ import { initPointerFX } from './modules/pointer-fx.js';
 import { initReveal, initActiveNav } from './modules/reveal.js';
 import { initCopyEmail } from './modules/toast.js';
 import { initGitHub } from './modules/github.js';
+import { initResumeMenu } from './modules/resume-menu.js';
+import { initLoadMore } from './modules/load-more.js';
 
 renderAll();
 initSplit();
@@ -32,6 +34,8 @@ initPointerFX();
 initReveal();
 initActiveNav();
 initCopyEmail();
+initResumeMenu();
+initLoadMore();
 initGitHub();
 
 const yr = document.getElementById('yr');

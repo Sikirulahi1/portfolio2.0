@@ -1,0 +1,16 @@
+{
+  "title": "Résumé",
+  "sub": "Two CVs — pick the one that fits the context. View online or download.",
+  "cvs": [
+    {
+      "label": "Industrial CV",
+      "desc": "For industry AI engineering / backend roles — engineering experience, shipped projects, and impact.",
+      "file": "/resume-industrial.pdf"
+    },
+    {
+      "label": "Academic CV",
+      "desc": "For research roles or grad apps — publications, research experience, and academic record.",
+      "file": "/resume-academic.pdf"
+    }
+  ]
+}

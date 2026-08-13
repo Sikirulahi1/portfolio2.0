@@ -26,7 +26,7 @@ export function initActiveNav() {
       if (a) a.classList.add('active');
     }
   }), { rootMargin: '-40% 0px -55% 0px' });
-  ['about', 'work', 'projects', 'publications', 'blogs', 'skills', 'github', 'contact'].forEach(id => {
+  ['about', 'work', 'resume', 'projects', 'publications', 'blogs', 'skills', 'github', 'contact'].forEach(id => {
     const s = document.getElementById(id);
     if (s) io.observe(s);
   });

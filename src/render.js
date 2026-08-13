@@ -11,9 +11,47 @@ import publications from './data/publications.json';
 import blogs from './data/blogs.json';
 import skills from './data/skills.json';
 import github from './data/github.json';
+import resume from './data/resume.json';
 
 const DOT = '<span class="dot">.</span>';
 const set = (id, html) => { const el = $('#' + id); if (el) el.innerHTML = html; };
+
+/* page size for the batched "View more" lists */
+export const PAGE = 3;
+
+/* per-list card builders — shared by initial render and load-more.js */
+export function projectCard(p, i) {
+  return `<article class="proj rv d${(i % 3) + 1}" data-tilt data-glow>` +
+    `<div class="proj-top"><span class="yr">${p.year}</span><span class="st"><i></i>SHIPPED</span></div>` +
+    `<h3>${p.title}</h3>` +
+    `<p>${p.desc}</p>` +
+    `<div class="proj-tech">${p.tech}</div>` +
+    `<a class="proj-link" href="${p.link}" target="_blank" rel="noopener">View source <span class="arr">→</span></a>` +
+    `</article>`;
+}
+export function pubCard(p, i) {
+  return `<article class="card pub-item rv d${(i % 3) + 1}" data-glow>` +
+    `<div class="pub-title">${p.title}</div>` +
+    `<div class="pub-meta"><span class="venue">${p.venue}</span><span class="yr">${p.year}</span></div>` +
+    `<div class="pub-authors">${p.authors}</div>` +
+    `<div class="pub-links">${p.links.map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('')}</div>` +
+    `</article>`;
+}
+export function blogCard(b, i) {
+  return `<article class="card blog-card rv d${(i % 3) + 1}" data-glow>` +
+    `<span class="blog-date">${b.date}</span>` +
+    `<h3>${b.title}</h3>` +
+    `<p>${b.excerpt}</p>` +
+    `<a class="blog-link" href="${b.link}" target="_blank" rel="noopener">Read post <span class="arr">→</span></a>` +
+    `</article>`;
+}
+
+/* data refs exported for load-more.js */
+export const lists = {
+  projects: { items: projects.items, build: projectCard, grid: 'projectsGrid' },
+  publications: { items: publications.items, build: pubCard, grid: 'pubsList' },
+  blogs: { items: blogs.items, build: blogCard, grid: 'blogsGrid' },
+};
 
 function renderNav() {
   set('navBrand', profile.brand + DOT);
@@ -32,13 +70,26 @@ function renderHero() {
       `<span class="row outline" data-split data-enddot>${b}</span>`;
   }
   set('heroSub', profile.heroSub);
+  const resumeMenuItems = resume.cvs.map(c =>
+    `<div class="resume-menu-item">` +
+    `<div class="mi-head"><span class="mi-label">${c.label}</span></div>` +
+    `<div class="mi-links">` +
+    `<a href="${c.file}" target="_blank" rel="noopener">View ↗</a>` +
+    `<a href="${c.file}" download>Download ↓</a>` +
+    `</div></div>`).join('');
   set('heroBtns',
     `<a class="btn primary" href="#projects" data-mag>View projects <span class="arr">→</span></a>` +
     `<a class="btn" href="#contact" data-mag>Get in touch</a>` +
+    `<span class="resume-wrap">` +
+    `<button class="btn" id="resumeBtn" data-mag>View résumé <span class="arr">▾</span></button>` +
+    `<div class="resume-menu" id="resumeMenu">${resumeMenuItems}</div>` +
+    `</span>` +
     `<a class="quiet-link" href="${profile.github}" target="_blank" rel="noopener">GitHub ↗</a>` +
     `<a class="quiet-link" href="${profile.linkedin}" target="_blank" rel="noopener">LinkedIn ↗</a>`);
   set('heroMeta', profile.heroMeta.map(m =>
     `<span>${m.k} <b>${m.v}</b></span>`).join(''));
+  const photo = $('#heroPhoto');
+  if (photo) { photo.src = profile.photo; photo.alt = profile.photoAlt; }
 }
 
 function renderAbout() {
@@ -75,41 +126,55 @@ function renderWork() {
     `</div>`).join(''));
 }
 
+function renderResume() {
+  set('resumeTitle', resume.title + DOT);
+  set('resumeSub', resume.sub);
+  set('resumeGrid', resume.cvs.map((c, i) =>
+    `<div class="card resume-card rv d${(i % 3) + 1}" data-glow>` +
+    `<h3>${c.label}</h3>` +
+    `<p>${c.desc}</p>` +
+    `<div class="resume-actions">` +
+    `<a class="btn" href="${c.file}" target="_blank" rel="noopener" data-mag>View <span class="arr">↗</span></a>` +
+    `<a class="btn" href="${c.file}" download data-mag>Download <span class="arr">↓</span></a>` +
+    `</div>` +
+    `</div>`).join(''));
+}
+
+/* Render the first PAGE items of a list into its grid, plus a "View more"
+   button if there are more. Used for projects / publications / blogs. */
+function renderList(key) {
+  const { items, build, grid } = lists[key];
+  const gridEl = $('#' + grid);
+  if (!gridEl) return;
+  const shown = items.slice(0, PAGE).map((it, i) => build(it, i)).join('');
+  gridEl.innerHTML = shown;
+  // remove any previous load-more button, then add one if there's more
+  const existing = gridEl.parentElement.querySelector('.load-more-row');
+  if (existing) existing.remove();
+  if (items.length > PAGE) {
+    const row = document.createElement('div');
+    row.className = 'load-more-row';
+    row.innerHTML = `<button class="btn load-more" data-list="${key}" data-mag>View more <span class="arr">↓</span></button>`;
+    gridEl.parentElement.appendChild(row);
+  }
+}
+
 function renderProjects() {
   set('projectsTitle', projects.title + DOT);
   set('projectsSub', projects.sub);
-  set('projectsGrid', projects.items.map((p, i) =>
-    `<article class="proj rv d${(i % 3) + 1}" data-tilt data-glow>` +
-    `<div class="proj-top"><span class="yr">${p.year}</span><span class="st"><i></i>SHIPPED</span></div>` +
-    `<h3>${p.title}</h3>` +
-    `<p>${p.desc}</p>` +
-    `<div class="proj-tech">${p.tech}</div>` +
-    `<a class="proj-link" href="${p.link}" target="_blank" rel="noopener">View source <span class="arr">→</span></a>` +
-    `</article>`).join(''));
+  renderList('projects');
 }
 
 function renderPublications() {
   set('pubsTitle', publications.title + DOT);
   set('pubsSub', publications.sub);
-  set('pubsList', publications.items.map((p, i) =>
-    `<article class="card pub-item rv d${(i % 3) + 1}" data-glow>` +
-    `<div class="pub-title">${p.title}</div>` +
-    `<div class="pub-meta"><span class="venue">${p.venue}</span><span class="yr">${p.year}</span></div>` +
-    `<div class="pub-authors">${p.authors}</div>` +
-    `<div class="pub-links">${p.links.map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('')}</div>` +
-    `</article>`).join(''));
+  renderList('publications');
 }
 
 function renderBlogs() {
   set('blogsTitle', blogs.title + DOT);
   set('blogsSub', blogs.sub);
-  set('blogsGrid', blogs.items.map((b, i) =>
-    `<article class="card blog-card rv d${(i % 3) + 1}" data-glow>` +
-    `<span class="blog-date">${b.date}</span>` +
-    `<h3>${b.title}</h3>` +
-    `<p>${b.excerpt}</p>` +
-    `<a class="blog-link" href="${b.link}" target="_blank" rel="noopener">Read post <span class="arr">→</span></a>` +
-    `</article>`).join(''));
+  renderList('blogs');
 }
 
 function renderSkills() {
@@ -159,6 +224,7 @@ export function renderAll() {
   renderAbout();
   renderWhatIDo();
   renderWork();
+  renderResume();
   renderProjects();
   renderPublications();
   renderBlogs();

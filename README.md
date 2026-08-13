@@ -50,14 +50,21 @@ src/
     about.json          bio, "right now", "off the clock"
     whatido.json        the 3 discipline cards
     experience.json     work history
-    projects.json       project cards
-    publications.json   paper list
-    blogs.json          blog cards
+    resume.json         Industrial + Academic CV links
+    projects.json       project cards (any number — "View more" paginates)
+    publications.json   paper list (any number — "View more" paginates)
+    blogs.json          blog cards (any number — "View more" paginates)
     skills.json         skill cards
     github.json         GitHub username, email, fallback snapshot, language colors
   render.js           reads data/*.json → injects into the HTML shell
 index.html            structural shell only (content is filled by render.js)
 ```
+
+### Static assets to drop in `public/`
+
+- `public/images/portrait.jpg` — your About photo (displayed at 4:5; replace the `portrait.svg` placeholder, then update `about.json` → `photo`).
+- `public/resume-industrial.pdf` — your Industrial CV (linked from the hero résumé menu + Resume section).
+- `public/resume-academic.pdf` — your Academic CV.
 
 ## Where to edit things
 
@@ -68,13 +75,19 @@ index.html            structural shell only (content is filled by render.js)
 | About bio, "Right now", hobbies | `src/data/about.json` |
 | The three "What I Do" cards | `src/data/whatido.json` |
 | Work experience | `src/data/experience.json` |
-| Projects | `src/data/projects.json` |
-| Publications | `src/data/publications.json` |
-| Blog posts | `src/data/blogs.json` |
+| Résumé CVs (labels, descriptions, file paths) | `src/data/resume.json` |
+| About photo path | `src/data/about.json` → `photo` / `photoAlt` |
+| Projects (add as many as you like) | `src/data/projects.json` |
+| Publications (add as many as you like) | `src/data/publications.json` |
+| Blog posts (add as many as you like) | `src/data/blogs.json` |
 | Skills | `src/data/skills.json` |
 | GitHub username + offline fallback | `src/data/github.json` |
 | Colors, fonts, spacing | `src/styles/variables.css` |
 | A specific animation | `src/scripts/modules/<name>.js` |
+
+**Projects / Publications / Blogs** show the first 3 with a "View more" button
+that reveals the next 3, and hides when the list is exhausted. Just add items
+to the JSON — no code change needed.
 
 Inline HTML is allowed in JSON string values (e.g. `<b>`, `<span class="hl">`) —
 it's the author's own content, injected via `innerHTML`.

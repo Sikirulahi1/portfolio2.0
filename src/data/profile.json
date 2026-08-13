@@ -3,6 +3,8 @@
   "brand": "Your Name",
   "introTag": "YOUR.NAME",
   "nameRows": ["YOUR", "NAME"],
+  "photo": "/images/portrait.svg",
+  "photoAlt": "Portrait of Your Name",
   "typedRoles": [
     "AI Engineer · Backend · Researcher",
     "I build and research AI systems end-to-end.",
@@ -26,6 +28,7 @@
   "navLinks": [
     { "label": "About", "href": "#about", "nav": "about" },
     { "label": "Work", "href": "#work", "nav": "work" },
+    { "label": "Résumé", "href": "#resume", "nav": "resume" },
     { "label": "Projects", "href": "#projects", "nav": "projects" },
     { "label": "Publications", "href": "#publications", "nav": "publications" },
     { "label": "Blogs", "href": "#blogs", "nav": "blogs" },

@@ -25,6 +25,27 @@
         { "label": "DOI ↗", "url": "#" },
         { "label": "Cite", "url": "#" }
       ]
+    },
+    {
+      "title": "Paper Title Three: A Reproducible Benchmark for the Thing",
+      "venue": "Preprint",
+      "year": "2024",
+      "authors": "<b>Your Name</b>, Co-Author Four",
+      "links": [
+        { "label": "arXiv ↗", "url": "#" },
+        { "label": "PDF ↗", "url": "#" },
+        { "label": "Code ↗", "url": "#" }
+      ]
+    },
+    {
+      "title": "Paper Title Four: Notes on Evaluating Retrieval Honestly",
+      "venue": "Workshop",
+      "year": "2024",
+      "authors": "Co-Author Five, <b>Your Name</b>",
+      "links": [
+        { "label": "PDF ↗", "url": "#" },
+        { "label": "Cite", "url": "#" }
+      ]
     }
   ]
 }
