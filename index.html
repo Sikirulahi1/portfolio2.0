@@ -21,6 +21,18 @@
     } catch (e) {}
   })();
 </script>
+<!-- critical CSS inlined in <head> so the page paints with the correct
+     background and the intro curtain already covering it on the first frame,
+     before main.js (deferred) loads the full stylesheet. Prevents FOUC. -->
+<style id="critical">
+  :root{--bg:#070B09}
+  :root[data-theme="light"]{--bg:#F6F8F7}
+  html,body{margin:0;background:var(--bg)}
+  #intro{position:fixed;inset:0;z-index:600;pointer-events:none}
+  #intro .p{position:absolute;left:0;right:0;height:50.5%;background:var(--bg)}
+  #intro .p.t{top:0}
+  #intro .p.b{bottom:0}
+</style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
