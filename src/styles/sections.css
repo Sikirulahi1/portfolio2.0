@@ -5,7 +5,7 @@
 .hero-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--muted);
   text-transform:uppercase;display:flex;align-items:center;gap:14px;margin-bottom:34px}
 .hero-eyebrow::before{content:"";width:28px;height:2px;background:var(--em)}
-h1.name{font-family:var(--disp);font-weight:900;font-size:clamp(3rem,10vw,7.4rem);
+h1.name{font-family:var(--disp);font-weight:900;font-size:clamp(2.2rem,6.5vw,5rem);
   line-height:.95;letter-spacing:-.045em;text-transform:uppercase;margin-bottom:38px}
 h1.name .row{display:block;white-space:nowrap}
 h1.name .ch{display:inline-block;transition:transform .3s cubic-bezier(.34,1.6,.44,1);will-change:transform}
@@ -68,9 +68,10 @@ h1.name .end-dot{color:var(--em);-webkit-text-stroke:0}
 
 /* responsive */
 /* hero photo (round portrait beside the name) */
-.hero-grid{display:grid;grid-template-columns:1fr auto;gap:56px;align-items:start}
+.hero-text{min-width:0}
+.hero-grid{display:grid;grid-template-columns:1fr auto;gap:64px;align-items:start}
 .hero-photo-wrap{display:flex;justify-content:center;margin-top:54px}
-.hero-photo{width:clamp(180px,24vw,280px);height:clamp(180px,24vw,280px);
+.hero-photo{width:clamp(170px,22vw,260px);height:clamp(170px,22vw,260px);
   border-radius:50%;object-fit:cover;display:block;
   border:2px solid var(--border-2);background:var(--panel-2);
   box-shadow:0 0 0 6px var(--bg),0 0 40px -8px var(--em-glow)}
@@ -91,7 +92,7 @@ h1.name .end-dot{color:var(--em);-webkit-text-stroke:0}
 .resume-wrap{position:relative;display:inline-flex}
 .resume-menu{position:absolute;top:calc(100% + 10px);left:0;min-width:230px;z-index:300;
   background:var(--panel-2);border:1px solid var(--border-2);border-radius:10px;padding:8px;
-  display:none;flex-direction:column;gap:2px;box-shadow:0 18px 40px -18px rgba(0,0,0,.7)}
+  display:none;flex-direction:column;gap:2px;box-shadow:0 18px 40px -18px var(--shadow)}
 .resume-menu.open{display:flex}
 .resume-menu-item{display:flex;flex-direction:column;gap:6px;padding:10px 12px;border-radius:7px;
   transition:background .15s}

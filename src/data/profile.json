@@ -1,10 +1,10 @@
 {
-  "name": "Your Name",
-  "brand": "Your Name",
-  "introTag": "YOUR.NAME",
-  "nameRows": ["YOUR", "NAME"],
-  "photo": "/images/portrait.svg",
-  "photoAlt": "Portrait of Your Name",
+  "name": "Sikirulahi Abdulkareem",
+  "brand": "Sikirulahi Abdulkareem",
+  "introTag": "SIKIRULAHI ABDULKAREEM",
+  "nameRows": ["SIKIRULAHI", "ABDULKAREEM"],
+  "photo": "/images/work-potrait-picture.png",
+  "photoAlt": "Portrait of Sikirulahi Abdulkareem",
   "typedRoles": [
     "AI Engineer · Backend · Researcher",
     "I build and research AI systems end-to-end.",

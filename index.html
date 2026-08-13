@@ -9,6 +9,30 @@
 <meta property="og:title" content="Your Name — AI Engineer · Backend Developer · AI Researcher">
 <meta property="og:description" content="I build and research AI systems end-to-end — from backend infrastructure to models to published work.">
 <meta property="og:type" content="website">
+<script>
+  /* set theme before first paint to avoid a flash of the wrong theme */
+  (function () {
+    try {
+      var t = localStorage.getItem('hp4-theme');
+      if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.dataset.theme = t;
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute('content', t === 'light' ? '#F6F8F7' : '#070B09');
+    } catch (e) {}
+  })();
+</script>
+<!-- critical CSS inlined in <head> so the page paints with the correct
+     background and the intro curtain already covering it on the first frame,
+     before main.js (deferred) loads the full stylesheet. Prevents FOUC. -->
+<style id="critical">
+  :root{--bg:#070B09}
+  :root[data-theme="light"]{--bg:#F6F8F7}
+  html,body{margin:0;background:var(--bg)}
+  #intro{position:fixed;inset:0;z-index:600;pointer-events:none}
+  #intro .p{position:absolute;left:0;right:0;height:50.5%;background:var(--bg)}
+  #intro .p.t{top:0}
+  #intro .p.b{bottom:0}
+</style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -198,6 +222,10 @@
 <div id="toast" role="status"></div>
 <div id="cur" aria-hidden="true"></div>
 <div id="curDot" aria-hidden="true"></div>
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+  <span class="ic-sun" aria-hidden="true">☀</span>
+  <span class="ic-moon" aria-hidden="true">☾</span>
+</button>
 <script type="module" src="/src/scripts/main.js"></script>
 </body>
 </html>

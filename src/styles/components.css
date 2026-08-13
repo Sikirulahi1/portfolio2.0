@@ -100,21 +100,21 @@ h2.sec-title .dot,.contact-big .dot{color:var(--em)}
 .cal-scroll{overflow-x:auto;padding-bottom:6px}
 .cal-months{display:grid;grid-auto-flow:column;font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-bottom:7px;min-width:760px}
 .cal-grid{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,12px);gap:3px;min-width:760px}
-.cal-grid i{width:12px;height:12px;border-radius:2px;background:#0E1712;border:1px solid rgba(255,255,255,.03);
+.cal-grid i{width:12px;height:12px;border-radius:2px;background:var(--cal-0);border:1px solid rgba(127,127,127,.08);
   opacity:0;transform:scale(.3)}
 .cal-grid.ready i{opacity:1;transform:none;
   transition:opacity .4s ease var(--d,0ms),transform .4s cubic-bezier(.34,1.5,.5,1) var(--d,0ms)}
-.cal-grid i.l1{background:#124232}
-.cal-grid i.l2{background:#0E6B4C}
-.cal-grid i.l3{background:#10A574}
-.cal-grid i.l4{background:#34D399;box-shadow:0 0 7px rgba(52,211,153,.5)}
+.cal-grid i.l1{background:var(--cal-1)}
+.cal-grid i.l2{background:var(--cal-2)}
+.cal-grid i.l3{background:var(--cal-3)}
+.cal-grid i.l4{background:var(--cal-4);box-shadow:0 0 7px var(--em-glow)}
 .cal-foot{display:flex;align-items:center;gap:10px;margin-top:16px;font-family:var(--mono);font-size:10.5px;color:var(--faint)}
 .legend{display:inline-flex;gap:3px;margin:0 6px}
-.legend i{width:11px;height:11px;border-radius:2px;background:#0E1712}
-.legend i:nth-child(2){background:#124232}
-.legend i:nth-child(3){background:#0E6B4C}
-.legend i:nth-child(4){background:#10A574}
-.legend i:nth-child(5){background:#34D399}
+.legend i{width:11px;height:11px;border-radius:2px;background:var(--cal-0)}
+.legend i:nth-child(2){background:var(--cal-1)}
+.legend i:nth-child(3){background:var(--cal-2)}
+.legend i:nth-child(4){background:var(--cal-3)}
+.legend i:nth-child(5){background:var(--cal-4)}
 .repo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .repo{border:1px solid var(--border);border-radius:var(--r);background:var(--panel);padding:22px;
   display:flex;flex-direction:column;gap:10px;color:var(--ink);
