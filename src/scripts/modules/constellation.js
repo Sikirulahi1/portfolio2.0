@@ -1,5 +1,7 @@
 /* constellation — emerald points drift; nearby points link faintly, and the
-   cursor "retrieves" its neighbors with brighter emerald connections. */
+   cursor "retrieves" its neighbors with brighter emerald connections.
+   Colors are read from CSS tokens so they follow the active theme; the palette
+   is re-read on `themechange` (dispatched by theme.js). */
 import { $ } from '../utils/dom.js';
 import { RM } from '../utils/motion.js';
 
@@ -9,6 +11,14 @@ export function initConstellation() {
   const ctx = cv.getContext('2d');
   let W, H, pts = [], mx = -9e3, my = -9e3, raf;
   const R = 150, LINK = 95, N = 85;
+  const C = { em: '#10B981', emBright: '#34D399', muted: '#93A39A' };
+  const readColors = () => {
+    const s = getComputedStyle(document.documentElement);
+    C.em = s.getPropertyValue('--em').trim() || C.em;
+    C.emBright = s.getPropertyValue('--em-bright').trim() || C.emBright;
+    C.muted = s.getPropertyValue('--muted').trim() || C.muted;
+    if (RM) drawStatic();
+  };
 
   function build() {
     const dpr = Math.min(devicePixelRatio || 1, 2);
@@ -33,7 +43,7 @@ export function initConstellation() {
     ctx.clearRect(0, 0, W, H);
     pts.forEach(p => {
       ctx.globalAlpha = 0.35;
-      ctx.fillStyle = p.em ? '#10B981' : '#93A39A';
+      ctx.fillStyle = p.em ? C.em : C.muted;
       ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 7); ctx.fill();
     });
     ctx.globalAlpha = 1;
@@ -54,7 +64,7 @@ export function initConstellation() {
         const d = Math.hypot(dx, dy);
         if (d < LINK) {
           ctx.globalAlpha = (1 - d / LINK) * 0.07;
-          ctx.strokeStyle = '#93A39A';
+          ctx.strokeStyle = C.muted;
           ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
         }
       }
@@ -64,18 +74,20 @@ export function initConstellation() {
       const near = d < R ? (1 - d / R) : 0;
       if (near > 0) {
         ctx.globalAlpha = near * 0.5;
-        ctx.strokeStyle = '#10B981';
+        ctx.strokeStyle = C.em;
         ctx.beginPath(); ctx.moveTo(mx, my); ctx.lineTo(p.x, p.y); ctx.stroke();
       }
       const twk = (Math.sin(t / 900 + p.tw) + 1) / 2;
       ctx.globalAlpha = Math.min(0.18 + twk * 0.22 + near * 0.55, 1);
-      ctx.fillStyle = (p.em || near > 0.15) ? (near > 0.15 ? '#34D399' : '#10B981') : '#93A39A';
+      ctx.fillStyle = (p.em || near > 0.15) ? (near > 0.15 ? C.emBright : C.em) : C.muted;
       ctx.beginPath(); ctx.arc(p.x, p.y, p.r + near * 2, 0, 7); ctx.fill();
     }
     ctx.globalAlpha = 1;
     raf = requestAnimationFrame(frame);
   }
+  readColors();
   addEventListener('resize', build);
+  document.addEventListener('themechange', readColors);
   build();
   if (!RM) {
     addEventListener('pointermove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });

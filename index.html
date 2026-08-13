@@ -9,6 +9,18 @@
 <meta property="og:title" content="Your Name — AI Engineer · Backend Developer · AI Researcher">
 <meta property="og:description" content="I build and research AI systems end-to-end — from backend infrastructure to models to published work.">
 <meta property="og:type" content="website">
+<script>
+  /* set theme before first paint to avoid a flash of the wrong theme */
+  (function () {
+    try {
+      var t = localStorage.getItem('hp4-theme');
+      if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.dataset.theme = t;
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute('content', t === 'light' ? '#F6F8F7' : '#070B09');
+    } catch (e) {}
+  })();
+</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,6 +47,10 @@
     <a class="brand" href="#top" id="navBrand">Your Name<span class="dot">.</span></a>
     <nav class="nav-links" id="navLinks" aria-label="Sections"></nav>
     <span class="status"><i></i>OPEN TO WORK</span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" data-mag>
+      <span class="ic-sun" aria-hidden="true">☀</span>
+      <span class="ic-moon" aria-hidden="true">☾</span>
+    </button>
   </div>
 </header>
 

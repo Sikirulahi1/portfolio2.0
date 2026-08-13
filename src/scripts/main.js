@@ -22,8 +22,10 @@ import { initCopyEmail } from './modules/toast.js';
 import { initGitHub } from './modules/github.js';
 import { initResumeMenu } from './modules/resume-menu.js';
 import { initLoadMore } from './modules/load-more.js';
+import { initTheme } from './modules/theme.js';
 
 renderAll();
+initTheme();
 initSplit();
 initIntro();
 initTyped();

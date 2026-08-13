@@ -1,5 +1,7 @@
-/* design tokens — the "Terminal Emerald" palette + type stack */
+/* design tokens — the "Terminal Emerald" palette + type stack.
+   Dark is the default (:root). Light overrides live under [data-theme="light"]. */
 :root{
+  color-scheme:dark;
   --bg:       #070B09;
   --panel:    #0C120F;
   --panel-2:  #121A15;
@@ -13,8 +15,41 @@
   --em-deep:  #059669;
   --on-em:    #04150E;
   --em-glow:  rgba(16,185,129,.35);
+  --nav-bg:   rgba(7,11,9,.82);
+  --shadow:   rgba(0,0,0,.7);
+  --cal-0:    #0E1712;
+  --cal-1:    #124232;
+  --cal-2:    #0E6B4C;
+  --cal-3:    #10A574;
+  --cal-4:    #34D399;
   --disp: 'Archivo', ui-sans-serif, system-ui, sans-serif;
   --body: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
   --r: 10px;
+}
+
+/* light theme — neutrals invert, emerald shifts one step deeper for contrast,
+   calendar uses a GitHub-style light ramp. Emerald stays the brand accent. */
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg:       #F6F8F7;
+  --panel:    #FFFFFF;
+  --panel-2:  #EEF3F0;
+  --border:   #E1E7E3;
+  --border-2: #CFD8D2;
+  --ink:      #0F1714;
+  --muted:    #586961;
+  --faint:    #8A9990;
+  --em:       #0B8A63;
+  --em-bright:#10B981;
+  --em-deep:  #066C49;
+  --on-em:    #04150E;
+  --em-glow:  rgba(11,138,99,.22);
+  --nav-bg:   rgba(255,255,255,.82);
+  --shadow:   rgba(15,23,20,.16);
+  --cal-0:    #EAEDEB;
+  --cal-1:    #BFE9D2;
+  --cal-2:    #6FD9A4;
+  --cal-3:    #2BB67C;
+  --cal-4:    #0B8A63;
 }

@@ -38,10 +38,21 @@ export const FX = (function fx() {
     else { running = false; ctx.clearRect(0, 0, W, H); }
   }
   function wake() { if (!running) { running = true; requestAnimationFrame(loop); } }
-  const COLORS = ['#34D399', '#10B981', '#059669', '#E9EFEB'];
+  /* read from CSS tokens so the spark/confetti palette follows the active theme
+     (the ink/white spark would be invisible on a light background otherwise). */
+  const fxColors = () => {
+    const s = getComputedStyle(document.documentElement);
+    return [
+      s.getPropertyValue('--em-bright').trim() || '#34D399',
+      s.getPropertyValue('--em').trim() || '#10B981',
+      s.getPropertyValue('--em-deep').trim() || '#059669',
+      s.getPropertyValue('--ink').trim() || '#E9EFEB',
+    ];
+  };
   return {
     spark(x, y) {
       if (RM) return;
+      const COLORS = fxColors();
       parts.push({ kind: 'spark', x, y,
         vx: (Math.random() - .5) * 1.3, vy: -0.3 - Math.random() * 0.8,
         g: 0.04, size: 1.3 + Math.random() * 1.6, life: 1, decay: 0.04,
@@ -50,6 +61,7 @@ export const FX = (function fx() {
     },
     burst(x, y) {
       if (RM) return;
+      const COLORS = fxColors();
       for (let i = 0; i < 55; i++) {
         const a = Math.random() * Math.PI * 2, sp = 2.5 + Math.random() * 6;
         parts.push({ kind: 'conf', x, y,
